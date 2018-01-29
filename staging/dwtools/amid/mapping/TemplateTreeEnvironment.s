@@ -5,23 +5,33 @@
 if( typeof module !== 'undefined' )
 {
 
-  if( typeof wBase === 'undefined' )
-  try
+  if( typeof _global_ === 'undefined' || !_global_.wBase )
   {
-    require( '../include/dwtools/Base.s' );
-  }
-  catch( err )
-  {
-    require( 'wTools' );
+    let toolsPath = '../../../dwtools/Base.s';
+    let toolsExternal = 0;
+    try
+    {
+      require.resolve( toolsPath )/*hhh*/;
+    }
+    catch( err )
+    {
+      toolsExternal = 1;
+      require( 'wTools' );
+    }
+    if( !toolsExternal )
+    require( toolsPath )/*hhh*/;
   }
 
-  var _ = wTools;
+
+  var _ = _global_.wTools;
 
   _.include( 'wTemplateTreeResolver' );
 
 }
 
-var _ = wTools;
+//
+
+var _ = _global_.wTools;
 var Parent = wTemplateTreeResolver;
 var Self = function wTemplateTreeEnvironment( o )
 {
@@ -118,7 +128,7 @@ function pathTry( name,def )
   return def;
 
   result = _.pathJoin( self.rootDirPath,result );
-  result = _.pathRegularize( result );
+  result = _.pathNormalize( result );
 
   if( self.verbosity )
   logger.debug( 'path :',name,'->',result );
@@ -142,6 +152,25 @@ function pathGet( name )
   return result;
 }
 
+//
+
+function pathsNormalize( name )
+{
+  var self = this;
+
+  for( var t in self.tree )
+  {
+    var src = self.tree[ t ];
+    if( !_.strEnds( t,'Path' ) )
+    continue;
+    if( !_.strIs( src ) )
+    continue;
+    self.tree[ t ] = self.pathGet( src );
+  }
+
+  return self;
+}
+
 // function pathGet( name )
 // {
 //   var self = this;
@@ -151,7 +180,7 @@ function pathGet( name )
 //   _.assert( _.strIs( name ),'cant resolve',name,'into path' );
 //
 //   result = _.pathJoin( self.rootDirPath,result );
-//   result = _.pathRegularize( result );
+//   result = _.pathNormalize( result );
 //
 //   if( self.verbosity )
 //   logger.debug( 'pathGet :',name,'->',result );
@@ -166,7 +195,7 @@ function pathGet( name )
 var Composes =
 {
   verbosity : 0,
-  rootDirPath : '/',
+  rootDirPath : '',
 }
 
 var Associates =
@@ -195,6 +224,7 @@ var Proto =
   pathGet : pathGet,
   path : pathGet,
 
+  pathsNormalize : pathsNormalize,
 
   // relationships
 
@@ -216,7 +246,7 @@ _.classMake
 
 //
 
-wTools[ Self.nameShort ] = _global_[ Self.name ] = Self;
+_[ Self.nameShort ] = _global_[ Self.name ] = Self;
 if( typeof module !== 'undefined' )
 module[ 'exports' ] = Self;
 
