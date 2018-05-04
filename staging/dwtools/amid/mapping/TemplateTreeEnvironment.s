@@ -171,23 +171,6 @@ function pathsNormalize( name )
   return self;
 }
 
-// function pathGet( name )
-// {
-//   var self = this;
-//   var result = self.valueGet( name );
-//
-//   _.assert( arguments.length === 1,'pathGet expects 1 argument' );
-//   _.assert( _.strIs( name ),'cant resolve',name,'into path' );
-//
-//   result = _.pathJoin( self.rootDirPath,result );
-//   result = _.pathNormalize( result );
-//
-//   if( self.verbosity )
-//   logger.debug( 'pathGet :',name,'->',result );
-//
-//   return result;
-// }
-
 // --
 // relationships
 // --
