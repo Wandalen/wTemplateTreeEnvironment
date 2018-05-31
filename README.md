@@ -1,16 +1,4 @@
 
-# wTemplateTree [![Build Status](https://travis-ci.org/Wandalen/wTemplateTree.svg?branch=master)](https://travis-ci.org/Wandalen/wTemplateTree)
+# wTemplateTreeEnvironment [![Build Status](https://travis-ci.org/Wandalen/wTemplateTreeEnvironment.svg?branch=master)](https://travis-ci.org/Wandalen/wTemplateTreeEnvironment)
 
-The module in JavaScript for resolving template structures.
-
-
-
-
-
-
-
-
-
-
-
-
+The module in JavaScript for resolving template structures and paths.
