@@ -31,6 +31,7 @@ if( typeof module !== 'undefined' )
 
 //
 
+var _global = _global_;
 var _ = _global_.wTools;
 var Parent = wTemplateTreeResolver;
 var Self = function wTemplateTreeEnvironment( o )
@@ -228,6 +229,10 @@ _.classMake
 });
 
 //
+
+if( typeof module !== 'undefined' )
+if( _global_.WTOOLS_PRIVATE )
+delete require.cache[ module.id ];
 
 _[ Self.nameShort ] = _global_[ Self.name ] = Self;
 if( typeof module !== 'undefined' )
