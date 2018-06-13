@@ -77,7 +77,7 @@ function trivial( test )
 }
 
 // --
-// proto
+// define class
 // --
 
 var Self =
@@ -97,7 +97,7 @@ var Self =
 
 //
 
-Self = wTestSuit( Self );
+Self = wTestSuite( Self );
 if( typeof module !== 'undefined' && !module.parent )
 _.Tester.test( Self.name );
 

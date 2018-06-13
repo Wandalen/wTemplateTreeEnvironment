@@ -192,7 +192,7 @@ var Restricts =
 }
 
 // --
-// proto
+// define class
 // --
 
 var Proto =
