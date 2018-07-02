@@ -83,7 +83,7 @@ function trivial( test )
 var Self =
 {
 
-  name : 'TemplateTreeEnvironment',
+  name : 'Tools/mid/TemplateTreeEnvironment',
   // verbosity : 1,
 
   tests :
