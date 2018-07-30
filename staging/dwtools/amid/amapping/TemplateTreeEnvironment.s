@@ -44,7 +44,7 @@ var Self = function wTemplateTreeEnvironment( o )
   return Self.prototype.init.apply( this,arguments );
 }
 
-Self.nameShort = 'TemplateTreeEnvironment';
+Self.shortName = 'TemplateTreeEnvironment';
 
 // --
 // inter
@@ -173,7 +173,7 @@ function pathsNormalize( name )
 }
 
 // --
-// relationships
+// relations
 // --
 
 var Composes =
@@ -210,7 +210,7 @@ var Proto =
 
   pathsNormalize : pathsNormalize,
 
-  // relationships
+  // relations
 
   constructor : Self,
   Composes : Composes,
@@ -234,7 +234,7 @@ if( typeof module !== 'undefined' )
 if( _global_.WTOOLS_PRIVATE )
 delete require.cache[ module.id ];
 
-_[ Self.nameShort ] = _global_[ Self.name ] = Self;
+_[ Self.shortName ] = _global_[ Self.name ] = Self;
 if( typeof module !== 'undefined' )
 module[ 'exports' ] = Self;
 
