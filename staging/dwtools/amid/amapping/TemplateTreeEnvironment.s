@@ -136,8 +136,8 @@ function pathTry( name,def )
   if( !result )
   return def;
 
-  result = _.pathJoin( self.rootDirPath,result );
-  result = _.pathNormalize( result );
+  result = _.path.pathJoin( self.rootDirPath,result );
+  result = _.path.pathNormalize( result );
 
   if( self.verbosity )
   logger.debug( 'path :',name,'->',result );
@@ -220,7 +220,7 @@ var Proto =
 
   // relations
 
-  /* constructor * : * Self, */
+  
   Composes : Composes,
   Associates : Associates,
   Restricts : Restricts,

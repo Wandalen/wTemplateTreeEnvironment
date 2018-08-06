@@ -25,7 +25,7 @@ if( typeof module !== 'undefined' )
   var _ = _global_.wTools;
 
   _.include( 'wTesting' );
-  _.include( 'wPath' );
+  _.include( 'wPathFundamentals'/*ttt*/ );
   require( '../amapping/TemplateTreeEnvironment.s' );
 
 }
@@ -71,7 +71,7 @@ function trivial( test )
   test.identical( got,expected );
 
   var got = template.pathGet( '{somePath}' );
-  var expected = _.pathNormalize( __filename );
+  var expected = _.path.pathNormalize( __filename );
   test.identical( got,expected );
 
 }
