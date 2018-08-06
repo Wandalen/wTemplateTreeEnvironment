@@ -121,7 +121,7 @@ function valueGet( name )
 
 //
 
-function pathTry( name,def )
+function try( name,def )
 {
   var self = this;
   var result;
@@ -131,13 +131,13 @@ function pathTry( name,def )
   else
   result = self.valueTry( name );
 
-  _.assert( arguments.length === 1 || arguments.length === 2,'pathTry expects 1 or 2 arguments' );
+  _.assert( arguments.length === 1 || arguments.length === 2,'try expects 1 or 2 arguments' );
 
   if( !result )
   return def;
 
-  result = _.path.pathJoin( self.rootDirPath,result );
-  result = _.path.pathNormalize( result );
+  result = _.path.join( self.rootDirPath,result );
+  result = _.path.normalize( result );
 
   if( self.verbosity )
   logger.debug( 'path :',name,'->',result );
@@ -147,10 +147,10 @@ function pathTry( name,def )
 
 //
 
-function pathGet( name )
+function get( name )
 {
   var self = this;
-  var result = self.pathTry( name );
+  var result = self.try( name );
 
   if( result === undefined )
   {
@@ -174,7 +174,7 @@ function pathsNormalize( name )
     continue;
     if( !_.strIs( src ) )
     continue;
-    self.tree[ t ] = self.pathGet( src );
+    self.tree[ t ] = self.get( src );
   }
 
   return self;
@@ -212,9 +212,9 @@ var Proto =
   valueGet : valueGet,
   value : valueGet,
 
-  pathTry : pathTry,
-  pathGet : pathGet,
-  path : pathGet,
+  try : try,
+  get : get,
+  path : get,
 
   pathsNormalize : pathsNormalize,
 
@@ -229,7 +229,7 @@ var Proto =
 
 // define
 
-_.classMake
+_.classDeclare
 ({
   cls : Self,
   parent : Parent,

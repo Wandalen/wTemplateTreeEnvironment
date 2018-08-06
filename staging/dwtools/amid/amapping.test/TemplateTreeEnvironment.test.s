@@ -70,8 +70,8 @@ function trivial( test )
   var expected = 2;
   test.identical( got,expected );
 
-  var got = template.pathGet( '{somePath}' );
-  var expected = _.path.pathNormalize( __filename );
+  var got = template.get( '{somePath}' );
+  var expected = _.path.normalize( __filename );
   test.identical( got,expected );
 
 }
