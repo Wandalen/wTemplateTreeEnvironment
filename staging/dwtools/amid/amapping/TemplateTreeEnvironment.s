@@ -121,7 +121,7 @@ function valueGet( name )
 
 //
 
-function try( name,def )
+function pathTry( name,def )
 {
   var self = this;
   var result;
@@ -131,7 +131,7 @@ function try( name,def )
   else
   result = self.valueTry( name );
 
-  _.assert( arguments.length === 1 || arguments.length === 2,'try expects 1 or 2 arguments' );
+  _.assert( arguments.length === 1 || arguments.length === 2,'pathTry expects 1 or 2 arguments' );
 
   if( !result )
   return def;
@@ -147,10 +147,10 @@ function try( name,def )
 
 //
 
-function get( name )
+function pathGet( name )
 {
   var self = this;
-  var result = self.try( name );
+  var result = self.pathTry( name );
 
   if( result === undefined )
   {
@@ -174,7 +174,7 @@ function pathsNormalize( name )
     continue;
     if( !_.strIs( src ) )
     continue;
-    self.tree[ t ] = self.get( src );
+    self.tree[ t ] = self.pathGet( src );
   }
 
   return self;
@@ -212,15 +212,15 @@ var Proto =
   valueGet : valueGet,
   value : valueGet,
 
-  try : try,
-  get : get,
-  path : get,
+  pathTry : pathTry,
+  pathGet : pathGet,
+  path : pathGet,
 
   pathsNormalize : pathsNormalize,
 
   // relations
 
-  
+
   Composes : Composes,
   Associates : Associates,
   Restricts : Restricts,
