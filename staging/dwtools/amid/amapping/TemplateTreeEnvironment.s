@@ -31,18 +31,19 @@ if( typeof module !== 'undefined' )
   }
 
 
-  var _ = _global_.wTools;
+  let _ = _global_.wTools;
 
   _.include( 'wTemplateTreeResolver' );
+  _.include( 'wPathFundamentals' );
 
 }
 
 //
 
-var _global = _global_;
-var _ = _global_.wTools;
-var Parent = wTemplateTreeResolver;
-var Self = function wTemplateTreeEnvironment( o )
+let _global = _global_;
+let _ = _global_.wTools;
+let Parent = wTemplateTreeResolver;
+let Self = function wTemplateTreeEnvironment( o )
 {
   return _.instanceConstructor( Self, this, arguments );
 }
@@ -55,14 +56,17 @@ Self.shortName = 'TemplateTreeEnvironment';
 
 function init( o )
 {
-  var self = this;
+  let self = this;
 
   Parent.prototype.init.call( self,o );
 
-  _.assert( arguments.length === 0 || arguments.length === 1 );
-
   if( self.constructor === Self )
   Object.preventExtensions( self );
+
+  _.assert( arguments.length === 0 || arguments.length === 1 );
+
+  if( self.path === null )
+  self.path = _.path;
 
 }
 
@@ -70,8 +74,8 @@ function init( o )
 
 function valueTry( name,def )
 {
-  var self = this;
-  var name2 = name;
+  let self = this;
+  let name2 = name;
 
   if( self.front !== null )
   name2 = _.entitySelect
@@ -80,7 +84,7 @@ function valueTry( name,def )
     query : name,
   });
 
-  var result = self.resolveTry( name2 );
+  let result = self.resolveTry( name2 );
 
   /* console.log( 'REMINDER : optimize valueTry' ); */
 
@@ -100,8 +104,8 @@ function valueTry( name,def )
 
 function valueGet( name )
 {
-  var self = this;
-  var result = self.valueTry( name );
+  let self = this;
+  let result = self.valueTry( name );
 
   _.assert( arguments.length === 1,'valueGet expects 1 argument' );
 
@@ -118,8 +122,8 @@ function valueGet( name )
 
 function pathTry( name,def )
 {
-  var self = this;
-  var result;
+  let self = this;
+  let result;
 
   if( def !== undefined )
   result = self.valueTry( name,def );
@@ -131,8 +135,9 @@ function pathTry( name,def )
   if( !result )
   return def;
 
-  result = _.path.join( self.rootDirPath,result );
-  result = _.path.normalize( result );
+  result = self.path.join( self.rootDirPath, result );
+  result = self.path.normalize( result );
+  result = result.replace( /(?<!:|:\/)\/\//, '/' );
 
   if( self.verbosity )
   logger.debug( 'path :',name,'->',result );
@@ -144,8 +149,8 @@ function pathTry( name,def )
 
 function pathGet( name )
 {
-  var self = this;
-  var result = self.pathTry( name );
+  let self = this;
+  let result = self.pathTry( name );
 
   if( result === undefined )
   {
@@ -158,13 +163,13 @@ function pathGet( name )
 
 //
 
-function pathsNormalize( name )
+function pathsNormalize()
 {
-  var self = this;
+  let self = this;
 
-  for( var t in self.tree )
+  for( let t in self.tree )
   {
-    var src = self.tree[ t ];
+    let src = self.tree[ t ];
     if( !_.strEnds( t,'Path' ) )
     continue;
     if( !_.strIs( src ) )
@@ -179,18 +184,19 @@ function pathsNormalize( name )
 // relations
 // --
 
-var Composes =
+let Composes =
 {
   verbosity : 0,
   rootDirPath : '',
 }
 
-var Associates =
+let Associates =
 {
   front : null,
+  path : null,
 }
 
-var Restricts =
+let Restricts =
 {
 }
 
@@ -198,7 +204,7 @@ var Restricts =
 // declare
 // --
 
-var Proto =
+let Proto =
 {
 
   init : init,
@@ -214,7 +220,6 @@ var Proto =
   pathsNormalize : pathsNormalize,
 
   // relations
-
 
   Composes : Composes,
   Associates : Associates,
