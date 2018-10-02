@@ -84,18 +84,21 @@ function _valueGet( name )
     query : name,
   });
 
-  let result = self.resolveTry( name2 );
+  let result = self._resolve( name2 );
 
   _.assert( arguments.length === 1 );
 
   // if( _.errIs( result ) )
   // return;
 
-  if( _.errIs( result ) )
-  throw result;
+  if( result instanceof self.ErrorQuerying )
+  return result;
 
   if( result === undefined )
   return;
+
+  if( _.errIs( result ) )
+  throw result;
 
   return result;
 }
@@ -128,6 +131,9 @@ function valueGet( name )
   let result = self._valueGet( name );
 
   _.assert( arguments.length === 1, 'valueGet expects 1 argument' );
+
+  if( _.errIs( result ) )
+  throw result;
 
   if( result === undefined )
   {
