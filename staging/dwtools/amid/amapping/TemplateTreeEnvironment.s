@@ -72,7 +72,7 @@ function init( o )
 
 //
 
-function valueTry( name,def )
+function _valueGet( name )
 {
   let self = this;
   let name2 = name;
@@ -86,12 +86,32 @@ function valueTry( name,def )
 
   let result = self.resolveTry( name2 );
 
-  /* console.log( 'REMINDER : optimize valueTry' ); */
+  _.assert( arguments.length === 1 );
+
+  // if( _.errIs( result ) )
+  // return;
+
+  if( _.errIs( result ) )
+  throw result;
+
+  if( result === undefined )
+  return;
+
+  return result;
+}
+
+//
+
+function valueTry( name,def )
+{
+  let self = this;
+  let result = self._valueGet( name );
 
   _.assert( arguments.length === 1 || def !== undefined, 'def should not be undefined if used' );
   _.assert( arguments.length === 1 || arguments.length === 2, 'valueTry expects 1 or 2 arguments' );
 
-  if( result === undefined )
+  if( def !== undefined )
+  if( result === undefined || _.errIs( result ) )
   result = def;
 
   if( self.verbosity )
@@ -105,42 +125,68 @@ function valueTry( name,def )
 function valueGet( name )
 {
   let self = this;
-  let result = self.valueTry( name );
+  let result = self._valueGet( name );
 
-  _.assert( arguments.length === 1,'valueGet expects 1 argument' );
+  _.assert( arguments.length === 1, 'valueGet expects 1 argument' );
 
   if( result === undefined )
   {
     debugger;
-    throw _.err( 'Unknown variable',name );
+    throw _.err( 'Unknown variable', name );
   }
 
   return result;
 }
 
 //
+//
+// function _pathGet( name )
+// {
+//   let self = this;
+//   let result = self.valueTry( name );
+//
+//   _.assert( arguments.length === 1 );
+//
+//   if( !result )
+//   return;
+//
+//   result = self._pathNormalize( filePath );
+//
+//   if( self.verbosity )
+//   logger.debug( 'path :',name,'->',result );
+//
+//   return result;
+// }
+//
+//
 
-function pathTry( name,def )
+function _pathNormalize( filePath )
 {
   let self = this;
-  let result;
 
-  if( def !== undefined )
-  result = self.valueTry( name,def );
-  else
-  result = self.valueTry( name );
+  filePath = self.path.join( self.rootDirPath, filePath );
+  filePath = self.path.normalize( filePath );
+  filePath = filePath.replace( /(?<!:|:\/)\/\//, '/' );
 
-  _.assert( arguments.length === 1 || arguments.length === 2,'pathTry expects 1 or 2 arguments' );
+  return filePath;
+}
 
-  if( !result )
-  return def;
+//
 
-  result = self.path.join( self.rootDirPath, result );
-  result = self.path.normalize( result );
-  result = result.replace( /(?<!:|:\/)\/\//, '/' );
+function pathTry( name, def )
+{
+  let self = this;
+  let result = self._valueGet( name );
+
+  _.assert( arguments.length === 1 || arguments.length === 2, 'pathTry expects 1 or 2 arguments' );
+
+  if( !result || _.errIs( result ) )
+  result = def;
+
+  result = self._pathNormalize( result );
 
   if( self.verbosity )
-  logger.debug( 'path :',name,'->',result );
+  logger.debug( 'path :', name, '->', result );
 
   return result;
 }
@@ -150,13 +196,18 @@ function pathTry( name,def )
 function pathGet( name )
 {
   let self = this;
-  let result = self.pathTry( name );
+  let result = self._valueGet( name );
 
   if( result === undefined )
   {
     debugger;
-    throw _.err( 'Unknown variable',name );
+    throw _.err( 'Unknown variable', name );
   }
+
+  result = self._pathNormalize( result );
+
+  if( self.verbosity )
+  logger.debug( 'path :', name, '->', result );
 
   return result;
 }
@@ -209,10 +260,12 @@ let Proto =
 
   init : init,
 
+  _valueGet : _valueGet,
   valueTry : valueTry,
   valueGet : valueGet,
   value : valueGet,
 
+  _pathNormalize : _pathNormalize,
   pathTry : pathTry,
   pathGet : pathGet,
   path : pathGet,
