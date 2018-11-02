@@ -84,7 +84,7 @@ var Self =
 {
 
   name : 'Tools/mid/TemplateTreeEnvironment',
-  // verbosity : 1,
+  silencing : 1,
 
   tests :
   {
