@@ -299,7 +299,7 @@ _.classDeclare
 
 if( typeof module !== 'undefined' )
 if( _global_.WTOOLS_PRIVATE )
-delete require.cache[ module.id ];
+{ /* delete require.cache[ module.id ]; */ }
 
 _[ Self.shortName ] = _global_[ Self.name ] = Self;
 if( typeof module !== 'undefined' )
