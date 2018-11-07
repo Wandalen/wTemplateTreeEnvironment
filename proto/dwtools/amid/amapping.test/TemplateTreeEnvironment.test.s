@@ -37,9 +37,9 @@ function trivial( test )
   var template = new wTemplateTreeEnvironment
   ({
     tree : tree,
-    prefixSymbol : '{',
-    postfixSymbol : '}',
-    upSymbol : '.',
+    prefixToken : '{',
+    postfixToken : '}',
+    upToken : '.',
     rootDirPath : __dirname,
   });
 
