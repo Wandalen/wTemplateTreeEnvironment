@@ -73,7 +73,7 @@ function _valueGet( name )
   // if( _.errIs( result ) )
   // return;
 
-  if( result instanceof self.ErrorQuerying )
+  if( result instanceof _.ErrorLooking )
   return result;
 
   if( result === undefined )
