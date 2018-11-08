@@ -60,7 +60,7 @@ function _valueGet( name )
   let name2 = name;
 
   if( self.front !== null )
-  name2 = _.entitySelect
+  name2 = _.select
   ({
     container : self.front,
     query : name,
