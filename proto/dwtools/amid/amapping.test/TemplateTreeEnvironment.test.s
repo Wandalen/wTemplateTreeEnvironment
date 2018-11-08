@@ -59,6 +59,28 @@ function trivial( test )
 
 }
 
+function valueTry( test )
+{
+  var tree =
+  {
+    prefix : {},
+  }
+
+  var env = new wTemplateTreeEnvironment
+  ({
+    tree : tree,
+    prefixToken : '{{',
+    postfixToken : '}}',
+    upToken : '/',
+  });
+
+  /**/
+
+  var def = 'view';
+  var got = env.valueTry( '{{/prefix/view}}', def );
+  test.identical( got, def );
+}
+
 // --
 // declare
 // --
@@ -73,6 +95,7 @@ var Self =
   {
 
     trivial : trivial,
+    valueTry : valueTry
 
   },
 
