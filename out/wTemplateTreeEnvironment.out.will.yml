@@ -168,7 +168,7 @@ reflector:
       ./dwtools/amid/amapping.test/TemplateTreeEnvironment.test.s: true
     srcFilter:
       basePath: ./proto
-      prefixPath: proto
+      prefixPath: .
     dstFilter:
       basePath: .
       prefixPath: .
