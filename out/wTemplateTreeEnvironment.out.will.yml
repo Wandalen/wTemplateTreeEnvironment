@@ -55,11 +55,10 @@ path:
       - ./dwtools/Tools.s
       - ./dwtools/abase
       - ./dwtools/amid
-      - ./dwtools/amid/amapping
-      - ./dwtools/amid/amapping/.DS_Store
-      - ./dwtools/amid/amapping/TemplateTreeEnvironment.s
-      - ./dwtools/amid/amapping.test
-      - ./dwtools/amid/amapping.test/TemplateTreeEnvironment.test.s
+      - ./dwtools/amid/l5_mapper
+      - ./dwtools/amid/l5_mapper/TemplateTreeEnvironment.s
+      - ./dwtools/amid/l5_mapper.test
+      - ./dwtools/amid/l5_mapper.test/TemplateTreeEnvironment.test.s
       - ./dwtools/atop
     criterion:
       default: 1
@@ -71,9 +70,8 @@ path:
   exportedTerminals.0:
     path:
       - ./dwtools/Tools.s
-      - ./dwtools/amid/amapping/.DS_Store
-      - ./dwtools/amid/amapping/TemplateTreeEnvironment.s
-      - ./dwtools/amid/amapping.test/TemplateTreeEnvironment.test.s
+      - ./dwtools/amid/l5_mapper/TemplateTreeEnvironment.s
+      - ./dwtools/amid/l5_mapper.test/TemplateTreeEnvironment.test.s
     criterion:
       default: 1
       debug: 1
@@ -163,9 +161,8 @@ reflector:
     recursive: 0
     filePath:
       ./dwtools/Tools.s: true
-      ./dwtools/amid/amapping/.DS_Store: true
-      ./dwtools/amid/amapping/TemplateTreeEnvironment.s: true
-      ./dwtools/amid/amapping.test/TemplateTreeEnvironment.test.s: true
+      ./dwtools/amid/l5_mapper/TemplateTreeEnvironment.s: true
+      ./dwtools/amid/l5_mapper.test/TemplateTreeEnvironment.test.s: true
     srcFilter:
       basePath: .
       prefixPath: proto
@@ -288,9 +285,8 @@ exported:
     exportedTerminalsPath:
       path:
         - ./dwtools/Tools.s
-        - ./dwtools/amid/amapping/.DS_Store
-        - ./dwtools/amid/amapping/TemplateTreeEnvironment.s
-        - ./dwtools/amid/amapping.test/TemplateTreeEnvironment.test.s
+        - ./dwtools/amid/l5_mapper/TemplateTreeEnvironment.s
+        - ./dwtools/amid/l5_mapper.test/TemplateTreeEnvironment.test.s
       criterion:
         default: 1
         debug: 1
