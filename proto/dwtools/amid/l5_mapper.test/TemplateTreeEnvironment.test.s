@@ -40,7 +40,7 @@ function trivial( test )
     prefixToken : '{',
     postfixToken : '}',
     upToken : '.',
-    rootDirPath : __dirname,
+    basePath : __dirname,
   });
 
   /* */

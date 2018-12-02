@@ -73,11 +73,11 @@ function _valueGet( name )
   // if( _.errIs( result ) )
   // return;
 
-  if( result instanceof _.ErrorLooking )
-  return result;
-
   if( result === undefined )
   return;
+
+  if( result instanceof _.ErrorLooking )
+  return result;
 
   if( _.errIs( result ) )
   throw result;
@@ -152,7 +152,7 @@ function _pathNormalize( filePath )
 {
   let self = this;
 
-  filePath = self.path.join( self.rootDirPath, filePath );
+  filePath = self.path.join( self.basePath, filePath );
   filePath = self.path.normalize( filePath );
   filePath = filePath.replace( /(?<!:|:\/)\/\//, '/' );
 
@@ -192,6 +192,12 @@ function pathGet( name )
     throw _.err( 'Unknown variable', name );
   }
 
+  if( result instanceof _.ErrorLooking )
+  {
+    debugger;
+    throw _.err( 'Unknown variable', name, '\n', result );
+  }
+
   result = self._pathNormalize( result );
 
   if( self.verbosity )
@@ -226,7 +232,7 @@ function pathsNormalize()
 let Composes =
 {
   verbosity : 0,
-  rootDirPath : '',
+  basePath : '',
 }
 
 let Associates =
@@ -246,25 +252,25 @@ let Restricts =
 let Proto =
 {
 
-  init : init,
+  init,
 
-  _valueGet : _valueGet,
-  valueTry : valueTry,
-  valueGet : valueGet,
-  value : valueGet,
+  _valueGet,
+  valueTry,
+  valueGet,
+  valueGet,
 
-  _pathNormalize : _pathNormalize,
-  pathTry : pathTry,
-  pathGet : pathGet,
-  path : pathGet,
+  _pathNormalize,
+  pathTry,
+  pathGet,
+  // path : pathGet,
 
-  pathsNormalize : pathsNormalize,
+  pathsNormalize,
 
   // relations
 
-  Composes : Composes,
-  Associates : Associates,
-  Restricts : Restricts,
+  Composes,
+  Associates,
+  Restricts,
 
 };
 
@@ -279,9 +285,9 @@ _.classDeclare
 
 //
 
-if( typeof module !== 'undefined' )
-if( _global_.WTOOLS_PRIVATE )
-{ /* delete require.cache[ module.id ]; */ }
+// if( typeof module !== 'undefined' )
+// if( _global_.WTOOLS_PRIVATE )
+// { /* delete require.cache[ module.id ]; */ }
 
 _[ Self.shortName ] = _global_[ Self.name ] = Self;
 if( typeof module !== 'undefined' )
