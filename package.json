@@ -34,8 +34,7 @@
     "wtemplatetreeresolver": ""
   },
   "devDependencies": {
-    "wTesting": "",
-    "wtemplatetreeenvironment": "."
+    "wTesting": ""
   },
   "keywords": [
     "Template tree",
