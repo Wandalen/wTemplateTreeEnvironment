@@ -3,7 +3,8 @@
 'use strict';
 
 /**
-  @module Tools/base/TemplateTreeEnvironment - Class to resolve tree-like with links data structures or paths in the structure. TemplateTreeEnvironment extends TemplateTreeResolver to been able to resolve paths into a files system. Use the module to resolve template or path to value.
+ * Class to resolve tree-like with links data structures or paths in the structure. TemplateTreeEnvironment extends TemplateTreeResolver to been able to resolve paths into a files system. Use the module to resolve template or path to value.
+  @module Tools/base/TemplateTreeEnvironment
 */
 
 /**
