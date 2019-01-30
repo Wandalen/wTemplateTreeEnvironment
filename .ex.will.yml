@@ -3,7 +3,7 @@ about :
 
   name : "wTemplateTreeEnvironment"
   description : "Class to resolve tree-like data structures with links  or paths in the structure. TemplateTreeEnvironment extends TemplateTreeResolver to been able to resolve paths into a files system. Use the module to resolve template or path to value."
-  version : "0.3.54"
+  version : "0.3.62"
   enabled : 1
   interpreters :
   - nodejs >= 6.0.0
@@ -26,7 +26,7 @@ path :
 step :
 
   export.proto :
-    inherit : export
+    inherit : predefined.export
     export : path::proto
     tar : 0
     criterion :
