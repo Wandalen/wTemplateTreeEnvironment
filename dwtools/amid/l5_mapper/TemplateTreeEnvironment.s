@@ -41,7 +41,7 @@ function init( o )
 {
   let self = this;
 
-  Parent.prototype.init.call( self,o );
+  Parent.prototype.init.call( self, o );
 
   if( self.constructor === Self )
   Object.preventExtensions( self );
@@ -63,8 +63,8 @@ function _valueGet( name )
   if( self.front !== null )
   name2 = _.select
   ({
-    container : self.front,
-    query : name,
+    src : self.front,
+    selector : name,
   });
 
   let result = self._resolve( name2 );
@@ -88,7 +88,7 @@ function _valueGet( name )
 
 //
 
-function valueTry( name,def )
+function valueTry( name, def )
 {
   let self = this;
   let result = self._valueGet( name );
@@ -101,7 +101,7 @@ function valueTry( name,def )
   result = def;
 
   if( self.verbosity )
-  logger.debug( 'value :',name,'->',result );
+  logger.debug( 'value :', name, '->', result );
 
   return result;
 }
@@ -142,7 +142,7 @@ function valueGet( name )
 //   result = self._pathNormalize( filePath );
 //
 //   if( self.verbosity )
-//   logger.debug( 'path :',name,'->',result );
+//   logger.debug( 'path :', name, '->', result );
 //
 //   return result;
 // }
@@ -216,7 +216,7 @@ function pathsNormalize()
   for( let t in self.tree )
   {
     let src = self.tree[ t ];
-    if( !_.strEnds( t,'Path' ) )
+    if( !_.strEnds( t, 'Path' ) )
     continue;
     if( !_.strIs( src ) )
     continue;

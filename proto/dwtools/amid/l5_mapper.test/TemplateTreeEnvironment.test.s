@@ -45,17 +45,17 @@ function trivial( test )
 
   /* */
 
-  var got = template.query( 'atomic1' );
+  var got = template.select( 'atomic1' );
   var expected = 'a1';
-  test.identical( got,expected );
+  test.identical( got, expected );
 
-  var got = template.query( 'atomic2' );
+  var got = template.select( 'atomic2' );
   var expected = 2;
-  test.identical( got,expected );
+  test.identical( got, expected );
 
   var got = template.pathGet( '{somePath}' );
   var expected = _.path.normalize( __filename );
-  test.identical( got,expected );
+  test.identical( got, expected );
 
 }
 
@@ -94,8 +94,8 @@ var Self =
   tests :
   {
 
-    trivial : trivial,
-    valueTry : valueTry
+    trivial,
+    valueTry,
 
   },
 
