@@ -4,7 +4,7 @@
 
 /**
  * Class to resolve tree-like with links data structures or paths in the structure. TemplateTreeEnvironment extends TemplateTreeResolver to been able to resolve paths into a files system. Use the module to resolve template or path to value.
-  @module Tools/base/TemplateTreeEnvironment
+  @module Tools/mid/TemplateTreeEnvironment
 */
 
 /**
@@ -23,9 +23,18 @@ if( typeof module !== 'undefined' )
 
 //
 
+/**
+ * @classdesc Class to resolve tree-like with links data structures or paths in the structure. 
+ * TemplateTreeEnvironment extends {@link module:Tools/mid/TemplateTreeResolver.wTemplateTreeResolver TemplateTreeResolver } 
+ * to been able to resolve paths into a files system.
+ * @param {Object} o Options map for constructor. {@link module:Tools/mid/TemplateTreeResolver.wTemplateTreeResolver.Fields Options description }
+ * @class wTemplateTreeEnvironment
+ * @memberof module:Tools/mid/TemplateTreeEnvironment
+*/
+
 let _global = _global_;
 let _ = _global_.wTools;
-let Parent = _.TemplateTreeResolver;
+let Parent = wTemplateTreeResolver;
 let Self = function wTemplateTreeEnvironment( o )
 {
   return _.instanceConstructor( Self, this, arguments );
@@ -88,6 +97,15 @@ function _valueGet( name )
 
 //
 
+/**
+ * @summary Resolves provided string `name` to value.
+ * @description Uses default value `def` if fails to get the value.
+ * @param {String} name String to resolve.
+ * @param {} def Default value.
+ * @function valueTry
+ * @memberof module:Tools/mid/TemplateTreeEnvironment.wTemplateTreeEnvironment#
+*/
+
 function valueTry( name, def )
 {
   let self = this;
@@ -107,6 +125,14 @@ function valueTry( name, def )
 }
 
 //
+
+/**
+ * @summary Resolves provided string `name` to value.
+ * @description Throws an Error if fails to get the value.
+ * @param {String} name String to resolve.
+ * @function valueGet
+ * @memberof module:Tools/mid/TemplateTreeEnvironment.wTemplateTreeEnvironment#
+*/
 
 function valueGet( name )
 {
@@ -162,6 +188,15 @@ function _pathNormalize( filePath )
 
 //
 
+/**
+ * @summary Resolves provided string `name` to a path.
+ * @description Uses default value `def` if fails to get the path.
+ * @param {String} name String to resolve.
+ * @param {String} def Default value.
+ * @function pathTry
+ * @memberof module:Tools/mid/TemplateTreeEnvironment.wTemplateTreeEnvironment#
+*/
+
 function pathTry( name, def )
 {
   let self = this;
@@ -181,6 +216,14 @@ function pathTry( name, def )
 }
 
 //
+
+/**
+ * @summary Resolves provided string `name` to a path.
+ * @description Throws an Error if fails to get the path.
+ * @param {String} name String to resolve.
+ * @function pathGet
+ * @memberof module:Tools/mid/TemplateTreeEnvironment.wTemplateTreeEnvironment#
+*/
 
 function pathGet( name )
 {
@@ -209,6 +252,12 @@ function pathGet( name )
 
 //
 
+/**
+ * @summary Normalizes all paths from current tree.
+ * @function pathsNormalize
+ * @memberof module:Tools/mid/TemplateTreeEnvironment.wTemplateTreeEnvironment#
+*/
+
 function pathsNormalize()
 {
   let self = this;
@@ -229,6 +278,15 @@ function pathsNormalize()
 // --
 // relations
 // --
+
+/**
+ * @typedef {Object} Fields
+ * @property {Number} verbosity=0 Controls level of verbosity.
+ * @property {String} basePath='' Base of path obtained from resolving of the template.
+ * @property {Object} front
+ * @property {Object} path Reference to path namespace {@link module:Tools/base/Path.wTools.path}
+ * @memberof module:Tools/mid/TemplateTreeEnvironment.wTemplateTreeEnvironment
+*/
 
 let Composes =
 {
