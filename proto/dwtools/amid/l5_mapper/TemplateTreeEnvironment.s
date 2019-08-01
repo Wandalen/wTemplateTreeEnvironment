@@ -28,7 +28,7 @@ let _ = _global_.wTools;
 let Parent = _.TemplateTreeResolver;
 let Self = function wTemplateTreeEnvironment( o )
 {
-  return _.instanceConstructor( Self, this, arguments );
+  return _.workpiece.construct( Self, this, arguments );
 }
 
 Self.shortName = 'TemplateTreeEnvironment';
