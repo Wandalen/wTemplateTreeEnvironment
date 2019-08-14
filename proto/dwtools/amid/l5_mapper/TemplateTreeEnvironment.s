@@ -17,7 +17,7 @@ if( typeof module !== 'undefined' )
   let _ = require( '../../Tools.s' );
 
   _.include( 'wTemplateTreeResolver' );
-  _.include( 'wPathFundamentals' );
+  _.include( 'wPathBasic' );
 
 }
 
