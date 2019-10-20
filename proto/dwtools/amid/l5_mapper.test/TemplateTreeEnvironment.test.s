@@ -88,7 +88,7 @@ function valueTry( test )
 var Self =
 {
 
-  name : 'Tools/mid/TemplateTreeEnvironment',
+  name : 'Tools.mid.TemplateTreeEnvironment',
   silencing : 1,
 
   tests :
