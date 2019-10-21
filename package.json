@@ -21,7 +21,7 @@
   {
     "url" : "https://github.com/Wandalen/wTemplateTreeEnvironment/issues"
   }, 
-  "dependencies" : { "wTools" : "", "wCopyable" : "", "wtemplatetreeresolver" : "" }, 
-  "devDependencies" : { "wTesting" : "" }, 
+  "dependencies" : { "wTools" : "beta", "wCopyable" : "beta", "wtemplatetreeresolver" : "beta" }, 
+  "devDependencies" : { "wTesting" : "beta" }, 
   "keywords" : [ "Template tree", "Template tree environment", "wTools", "JSON", "YAML" ]
 }
