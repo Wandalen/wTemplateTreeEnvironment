@@ -27,7 +27,7 @@ about :
 path :
 
   repository : git+https:///github.com/Wandalen/wTemplateTreeEnvironment.git
-  remotes :
+  origins :
    - git+https:///github.com/Wandalen/wTemplateTreeEnvironment.git
    - npm:///wtemplatetreeenvironment
   bugtracker : https:///github.com/Wandalen/wTemplateTreeEnvironment/issues
