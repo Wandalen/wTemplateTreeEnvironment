@@ -6,12 +6,13 @@ consistency:
     hash: bfff246b81974763b832b766370c5759
     size: 2045
   ../.im.will.yml: &ref_1
-    hash: 552d959f0a7f9f807f1ee30b630c8235
-    size: 5083
+    hash: 4c50428d75e53e73f25d9a0b4018e277
+    size: 5157
 module:
   wTemplateTreeEnvironment.out:
     about:
       name: wTemplateTreeEnvironment
+      org: noorg
       description: >-
         Class to resolve tree-like data structures with links  or paths in the
         structure. TemplateTreeEnvironment extends TemplateTreeResolver to been
@@ -65,9 +66,6 @@ module:
       download:
         criterion:
           predefined: 1
-      remote:
-        criterion:
-          predefined: 1
       repository:
         path: 'git+https:///github.com/Wandalen/wTemplateTreeEnvironment.git'
       origins:
@@ -77,15 +75,15 @@ module:
       bugtracker:
         path: 'https:///github.com/Wandalen/wTemplateTreeEnvironment/issues'
       in:
-        criterion:
-          predefined: 0
         path: .
       out:
-        criterion:
-          predefined: 0
         path: .
       temp:
-        path: 'path::out'
+        path:
+          - 'path::out'
+          - ../package-lock.json
+          - ../package.json
+          - ../node_modules
       proto:
         path: ../proto
       export:
@@ -152,11 +150,13 @@ module:
         path: '{path::out.*=}/source/Index.s'
       exported.dir.proto.export:
         criterion:
+          generated: 1
           content: proto
           export: 1
         path: ../proto
       exported.files.proto.export:
         criterion:
+          generated: 1
           content: proto
           export: 1
         path:
@@ -343,6 +343,7 @@ module:
           prefixPath: ../proto
         mandatory: 1
         criterion:
+          generated: 1
           content: proto
           export: 1
       exported.files.proto.export:
@@ -355,6 +356,7 @@ module:
         recursive: 0
         mandatory: 1
         criterion:
+          generated: 1
           content: proto
           export: 1
     step:
@@ -801,6 +803,7 @@ module:
   ../:
     about:
       name: wTemplateTreeEnvironment
+      org: noorg
       description: >-
         Class to resolve tree-like data structures with links  or paths in the
         structure. TemplateTreeEnvironment extends TemplateTreeResolver to been
@@ -843,9 +846,6 @@ module:
       download:
         criterion:
           predefined: 1
-      remote:
-        criterion:
-          predefined: 1
       repository:
         path: 'git+https:///github.com/Wandalen/wTemplateTreeEnvironment.git'
       origins:
@@ -855,21 +855,21 @@ module:
       bugtracker:
         path: 'https:///github.com/Wandalen/wTemplateTreeEnvironment/issues'
       in:
-        criterion:
-          predefined: 0
         path: .
       out:
-        criterion:
-          predefined: 0
         path: out
       temp:
-        path: 'path::out'
+        path:
+          - 'path::out'
+          - package-lock.json
+          - package.json
+          - node_modules
       proto:
-        path: ./proto
+        path: proto
       export:
         path: '{path::proto}/**'
       doc:
-        path: ./doc
+        path: doc
       out.raw.debug:
         criterion:
           debug: debug
@@ -1497,5 +1497,5 @@ module:
         hash: bfff246b81974763b832b766370c5759
         size: 2045
       ../.im.will.yml:
-        hash: 552d959f0a7f9f807f1ee30b630c8235
-        size: 5083
+        hash: 4c50428d75e53e73f25d9a0b4018e277
+        size: 5157
