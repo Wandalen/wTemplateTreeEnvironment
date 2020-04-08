@@ -24,12 +24,13 @@ if( typeof module !== 'undefined' )
 //
 
 /**
- * @classdesc Class to resolve tree-like with links data structures or paths in the structure. 
- * TemplateTreeEnvironment extends {@link module:Tools/mid/TemplateTreeResolver.wTemplateTreeResolver TemplateTreeResolver } 
+ * @classdesc Class to resolve tree-like with links data structures or paths in the structure.
+ * TemplateTreeEnvironment extends {@link module:Tools/mid/TemplateTreeResolver.wTemplateTreeResolver TemplateTreeResolver }
  * to been able to resolve paths into a files system.
  * @param {Object} o Options map for constructor. {@link module:Tools/mid/TemplateTreeResolver.wTemplateTreeResolver.Fields Options description }
  * @class wTemplateTreeEnvironment
- * @memberof module:Tools/mid/TemplateTreeEnvironment
+ * @namespace wTools
+ * @module Tools/mid/TemplateTreeEnvironment
 */
 
 let _global = _global_;
@@ -103,7 +104,9 @@ function _valueGet( name )
  * @param {String} name String to resolve.
  * @param {} def Default value.
  * @function valueTry
- * @memberof module:Tools/mid/TemplateTreeEnvironment.wTemplateTreeEnvironment#
+ * @class wTemplateTreeEnvironment
+ * @namespace wTools
+ * @module Tools/mid/TemplateTreeEnvironment
 */
 
 function valueTry( name, def )
@@ -131,7 +134,9 @@ function valueTry( name, def )
  * @description Throws an Error if fails to get the value.
  * @param {String} name String to resolve.
  * @function valueGet
- * @memberof module:Tools/mid/TemplateTreeEnvironment.wTemplateTreeEnvironment#
+ * @class wTemplateTreeEnvironment
+ * @namespace wTools
+ * @module Tools/mid/TemplateTreeEnvironment
 */
 
 function valueGet( name )
@@ -194,7 +199,9 @@ function _pathNormalize( filePath )
  * @param {String} name String to resolve.
  * @param {String} def Default value.
  * @function pathTry
- * @memberof module:Tools/mid/TemplateTreeEnvironment.wTemplateTreeEnvironment#
+ * @class wTemplateTreeEnvironment
+ * @namespace wTools
+ * @module Tools/mid/TemplateTreeEnvironment
 */
 
 function pathTry( name, def )
@@ -222,7 +229,9 @@ function pathTry( name, def )
  * @description Throws an Error if fails to get the path.
  * @param {String} name String to resolve.
  * @function pathGet
- * @memberof module:Tools/mid/TemplateTreeEnvironment.wTemplateTreeEnvironment#
+ * @class wTemplateTreeEnvironment
+ * @namespace wTools
+ * @module Tools/mid/TemplateTreeEnvironment
 */
 
 function pathGet( name )
@@ -255,7 +264,9 @@ function pathGet( name )
 /**
  * @summary Normalizes all paths from current tree.
  * @function pathsNormalize
- * @memberof module:Tools/mid/TemplateTreeEnvironment.wTemplateTreeEnvironment#
+ * @class wTemplateTreeEnvironment
+ * @namespace wTools
+ * @module Tools/mid/TemplateTreeEnvironment
 */
 
 function pathsNormalize()
@@ -285,7 +296,9 @@ function pathsNormalize()
  * @property {String} basePath='' Base of path obtained from resolving of the template.
  * @property {Object} front
  * @property {Object} path Reference to path namespace {@link module:Tools/base/Path.wTools.path}
- * @memberof module:Tools/mid/TemplateTreeEnvironment.wTemplateTreeEnvironment
+ * @class wTemplateTreeEnvironment
+ * @namespace wTools
+ * @module Tools/mid/TemplateTreeEnvironment
 */
 
 let Composes =
