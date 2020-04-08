@@ -14,10 +14,10 @@
 if( typeof module !== 'undefined' )
 {
 
-  let _ = require( '../../Tools.s' );
+  let _ = require( '../../../dwtools/Tools.s' );
 
   _.include( 'wTemplateTreeResolver' );
-  _.include( 'wPathFundamentals' );
+  _.include( 'wPathBasic' );
 
 }
 
@@ -37,7 +37,7 @@ let _ = _global_.wTools;
 let Parent = wTemplateTreeResolver;
 let Self = function wTemplateTreeEnvironment( o )
 {
-  return _.instanceConstructor( Self, this, arguments );
+  return _.workpiece.construct( Self, this, arguments );
 }
 
 Self.shortName = 'TemplateTreeEnvironment';

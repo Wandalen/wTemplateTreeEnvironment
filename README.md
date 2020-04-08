@@ -6,8 +6,23 @@ Class to resolve tree-like data structures with links  or paths in the structure
 ### Try out
 ```
 npm install
-node sample/Sample.s
+node sample/Sample.js
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -5,7 +5,7 @@
 if( typeof module !== 'undefined' )
 {
 
-  let _ = require( '../../Tools.s' );
+  let _ = require( '../../../dwtools/Tools.s' );
 
   _.include( 'wTesting' );
 
@@ -88,7 +88,7 @@ function valueTry( test )
 var Self =
 {
 
-  name : 'Tools/mid/TemplateTreeEnvironment',
+  name : 'Tools.mid.TemplateTreeEnvironment',
   silencing : 1,
 
   tests :
