@@ -102,7 +102,7 @@ function _valueGet( name )
  * @summary Resolves provided string `name` to value.
  * @description Uses default value `def` if fails to get the value.
  * @param {String} name String to resolve.
- * @param {} def Default value.
+ * @param {*} def Default value.
  * @function valueTry
  * @class wTemplateTreeEnvironment
  * @namespace wTools
