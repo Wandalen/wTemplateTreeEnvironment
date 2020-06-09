@@ -36,7 +36,8 @@ if( typeof module !== 'undefined' )
 let _global = _global_;
 let _ = _global_.wTools;
 let Parent = wTemplateTreeResolver;
-let Self = function wTemplateTreeEnvironment( o )
+let Self = wTemplateTreeEnvironment;
+function wTemplateTreeEnvironment( o )
 {
   return _.workpiece.construct( Self, this, arguments );
 }
