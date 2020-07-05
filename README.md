@@ -1,5 +1,5 @@
 
-# wTemplateTreeEnvironment [![Build Status](https://travis-ci.org/Wandalen/wTemplateTreeEnvironment.svg?branch=master)](https://travis-ci.org/Wandalen/wTemplateTreeEnvironment)
+# module::TemplateTreeEnvironment [![Status](https://github.com/Wandalen/wTemplateTreeEnvironment/workflows/Test/badge.svg)](https://github.com/Wandalen/wTemplateTreeEnvironment}/actions?query=workflow%3ATest)
 
 Class to resolve tree-like data structures with links  or paths in the structure. TemplateTreeEnvironment extends TemplateTreeResolver to been able to resolve paths into a files system. Use the module to resolve template or path to value.
 
