@@ -1,4 +1,5 @@
-( function _TemplateTreeEnvironment_s_( ) {
+( function _TemplateTreeEnvironment_s_( )
+{
 
 'use strict';
 
@@ -329,7 +330,6 @@ let Proto =
   _valueGet,
   valueTry,
   valueGet,
-  valueGet,
 
   _pathNormalize,
   pathTry,
@@ -356,7 +356,6 @@ _.classDeclare
 });
 
 //
-
 
 
 _[ Self.shortName ] = _global_[ Self.name ] = Self;
