@@ -1,4 +1,5 @@
-( function _TemplateTreeEnvironment_test_s_( ) {
+( function _TemplateTreeEnvironment_test_s_( )
+{
 
 'use strict';
 
@@ -36,7 +37,7 @@ function trivial( test )
   var self = this;
   var template = new wTemplateTreeEnvironment
   ({
-    tree : tree,
+    tree,
     prefixToken : '{',
     postfixToken : '}',
     upToken : '.',
@@ -68,7 +69,7 @@ function valueTry( test )
 
   var env = new wTemplateTreeEnvironment
   ({
-    tree : tree,
+    tree,
     prefixToken : '{{',
     postfixToken : '}}',
     upToken : '/',
