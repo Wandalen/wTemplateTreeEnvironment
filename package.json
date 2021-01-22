@@ -1,6 +1,6 @@
 {
   "name" : "wtemplatetreeenvironment",
-  "version" : "0.3.192",
+  "version" : "0.3.193",
   "engine" : "node >= 10.0.0",
   "description" : "Class to resolve tree-like data structures with links  or paths in the structure. TemplateTreeEnvironment extends TemplateTreeResolver to been able to resolve paths into a files system. Use the module to resolve template or path to value.",
   "author" : "Kostiantyn Wandalen <wanalen@01.school>",
