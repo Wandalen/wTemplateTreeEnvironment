@@ -88,7 +88,7 @@ function _valueGet( name )
   if( result === undefined )
   return;
 
-  if( result instanceof _.LookingError )
+  if( result instanceof _.looker.LookingError )
   return result;
 
   if( _.errIs( result ) )
@@ -246,7 +246,7 @@ function pathGet( name )
     throw _.err( 'Unknown variable', name );
   }
 
-  if( result instanceof _.LookingError )
+  if( result instanceof _.looker.LookingError )
   {
     debugger;
     throw _.err( 'Unknown variable', name, '\n', result );
