@@ -152,7 +152,6 @@ function valueGet( name )
 
   if( result === undefined )
   {
-    debugger;
     throw _.err( 'Unknown variable', name );
   }
 
@@ -242,13 +241,11 @@ function pathGet( name )
 
   if( result === undefined )
   {
-    debugger;
     throw _.err( 'Unknown variable', name );
   }
 
   if( result instanceof _.looker.LookingError )
   {
-    debugger;
     throw _.err( 'Unknown variable', name, '\n', result );
   }
 
