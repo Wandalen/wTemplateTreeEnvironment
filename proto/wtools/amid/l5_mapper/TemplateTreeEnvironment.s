@@ -33,10 +33,10 @@ if( typeof module !== 'undefined' )
  * @module Tools/mid/TemplateTreeEnvironment
 */
 
-let _global = _global_;
-let _ = _global_.wTools;
-let Parent = wTemplateTreeResolver;
-let Self = wTemplateTreeEnvironment;
+const _global = _global_;
+const _ = _global_.wTools;
+const Parent = wTemplateTreeResolver;
+const Self = wTemplateTreeEnvironment;
 function wTemplateTreeEnvironment( o )
 {
   return _.workpiece.construct( Self, this, arguments );

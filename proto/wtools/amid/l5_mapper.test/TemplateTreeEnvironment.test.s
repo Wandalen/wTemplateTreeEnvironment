@@ -16,8 +16,8 @@ if( typeof module !== 'undefined' )
 
 //
 
-let _ = _global_.wTools;
-let Parent = wTester;
+const _ = _global_.wTools;
+const Parent = wTester;
 
 var tree =
 {
@@ -86,7 +86,7 @@ function valueTry( test )
 // declare
 // --
 
-let Self =
+const Proto =
 {
 
   name : 'Tools.mid.TemplateTreeEnvironment',
@@ -104,7 +104,7 @@ let Self =
 
 //
 
-Self = wTestSuite( Self );
+const Self = wTestSuite( Proto );
 if( typeof module !== 'undefined' && !module.parent )
 wTester.test( Self.name );
 
