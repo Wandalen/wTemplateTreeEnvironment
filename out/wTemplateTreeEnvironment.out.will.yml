@@ -2,15 +2,12 @@ format: outwillfile-2.0
 root:
   - wTemplateTreeEnvironment.out
 consistency:
-  wTemplateTreeEnvironment.out.will.yml: &ref_0
-    hash: f1f096097c4c5d2b1c2e2cbc031cd74f
-    size: 39428
-  ../.ex.will.yml: &ref_1
+  ../.ex.will.yml: &ref_0
     hash: 0251988b3862b80d596345d7245fa517
     size: 2046
-  ../.im.will.yml: &ref_2
-    hash: 740f8a1dea1037d3749b2bcc76bdf60a
-    size: 5262
+  ../.im.will.yml: &ref_1
+    hash: d827c782c667505be08fc4b0b356349a
+    size: 5293
 module:
   wTemplateTreeEnvironment.out:
     about:
@@ -23,11 +20,11 @@ module:
         template or path to value.
       enabled: 1
       version: 0.4.0
-      interpreters:
+      interpreters: &ref_2
         - njs >= 10.0.0
         - chrome >= 60.0.0
         - firefox >= 60.0.0
-      keywords:
+      keywords: &ref_3
         - Template tree
         - Template tree environment
         - wTools
@@ -35,10 +32,10 @@ module:
         - YAML
       license: MIT
       author: Kostiantyn Wandalen <wanalen@01.school>
-      contributors:
+      contributors: &ref_4
         - Kostiantyn Wandalen <wanalen@01.school>
       npm.name: wtemplatetreeenvironment
-      npm.scripts:
+      npm.scripts: &ref_5
         test: wtest .run proto/**
         docgen: wdocgen .build proto
     path:
@@ -69,7 +66,7 @@ module:
       download:
         criterion:
           predefined: 1
-        path: ../
+        path: ..
       repository:
         path: 'git+https:///github.com/Wandalen/wTemplateTreeEnvironment.git'
       origins:
@@ -150,6 +147,10 @@ module:
           raw: compiled
           content: prime
         path: '{path::out.*=}/source/Index.s'
+      npm.proto.entry:
+        path:
+          - ../proto/wtools/amid/l5_mapper/TemplateTreeEnvironment.s
+          - ../proto/node_modules/wtemplatetreeenvironment
       exported.dir.proto.export:
         criterion:
           generated: 1
@@ -713,24 +714,6 @@ module:
           content: prime
         inherit:
           - files.transpile
-      exported.proto.export:
-        opts:
-          filePath: 'reflector::exported.proto.export'
-        criterion:
-          generated: 1
-          content: proto
-          export: 1
-        inherit:
-          - files.reflect
-      exported.files.proto.export:
-        opts:
-          filePath: 'reflector::exported.files.proto.export'
-        criterion:
-          generated: 1
-          content: proto
-          export: 1
-        inherit:
-          - files.reflect
     build:
       proto.export:
         steps:
@@ -819,9 +802,8 @@ module:
           content: proto
           export: 1
     consistency:
-      wTemplateTreeEnvironment.out.will.yml: *ref_0
-      ../.ex.will.yml: *ref_1
-      ../.im.will.yml: *ref_2
+      ../.ex.will.yml: *ref_0
+      ../.im.will.yml: *ref_1
   ../:
     about:
       name: wTemplateTreeEnvironment
@@ -833,24 +815,13 @@ module:
         template or path to value.
       enabled: 1
       version: 0.4.0
-      interpreters:
-        - njs >= 10.0.0
-        - chrome >= 60.0.0
-        - firefox >= 60.0.0
-      keywords:
-        - Template tree
-        - Template tree environment
-        - wTools
-        - JSON
-        - YAML
+      interpreters: *ref_2
+      keywords: *ref_3
       license: MIT
       author: Kostiantyn Wandalen <wanalen@01.school>
-      contributors:
-        - Kostiantyn Wandalen <wanalen@01.school>
+      contributors: *ref_4
       npm.name: wtemplatetreeenvironment
-      npm.scripts:
-        test: wtest .run proto/**
-        docgen: wdocgen .build proto
+      npm.scripts: *ref_5
     path:
       module.willfiles:
         criterion:
@@ -879,7 +850,7 @@ module:
       download:
         criterion:
           predefined: 1
-        path: ./
+        path: .
       repository:
         path: 'git+https:///github.com/Wandalen/wTemplateTreeEnvironment.git'
       origins:
@@ -960,6 +931,10 @@ module:
           raw: compiled
           content: prime
         path: '{path::out.*=}/source/Index.s'
+      npm.proto.entry:
+        path:
+          - proto/wtools/amid/l5_mapper/TemplateTreeEnvironment.s
+          - proto/node_modules/wtemplatetreeenvironment
     submodule:
       wTools:
         path: 'npm:///wTools'
@@ -1526,6 +1501,5 @@ module:
         hash: 0251988b3862b80d596345d7245fa517
         size: 2046
       ../.im.will.yml:
-        hash: 740f8a1dea1037d3749b2bcc76bdf60a
-        size: 5262
-      wTemplateTreeEnvironment.out.will.yml: *ref_0
+        hash: d827c782c667505be08fc4b0b356349a
+        size: 5293
