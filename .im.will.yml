@@ -83,10 +83,8 @@ path:
       raw: compiled
       content: prime
   npm.proto.entry:
-    - >-
-      /pro/module/wTemplateTreeEnvironment/proto/wtools/amid/l5_mapper/TemplateTreeEnvironment.s
-    - >-
-      /pro/module/wTemplateTreeEnvironment/proto/node_modules/wtemplatetreeenvironment
+    - proto/wtools/amid/l5_mapper/TemplateTreeEnvironment.s
+    - proto/node_modules/wtemplatetreeenvironment
 reflector:
   reflect.proto:
     inherit: predefined.*
