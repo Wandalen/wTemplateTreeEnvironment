@@ -2,10 +2,13 @@ format: outwillfile-2.0
 root:
   - wTemplateTreeEnvironment.out
 consistency:
-  ../.ex.will.yml: &ref_0
+  wTemplateTreeEnvironment.out.will.yml: &ref_0
+    hash: 487331d798d38092d899b7398b35e1e2
+    size: 39878
+  ../.ex.will.yml: &ref_1
     hash: 0251988b3862b80d596345d7245fa517
     size: 2046
-  ../.im.will.yml: &ref_1
+  ../.im.will.yml: &ref_2
     hash: 35ed87db619ad16035c3f78ad2477709
     size: 5201
 module:
@@ -20,11 +23,11 @@ module:
         template or path to value.
       enabled: 1
       version: 0.4.0
-      interpreters: &ref_2
+      interpreters:
         - njs >= 10.0.0
         - chrome >= 60.0.0
         - firefox >= 60.0.0
-      keywords: &ref_3
+      keywords:
         - Template tree
         - Template tree environment
         - wTools
@@ -32,10 +35,10 @@ module:
         - YAML
       license: MIT
       author: Kostiantyn Wandalen <wanalen@01.school>
-      contributors: &ref_4
+      contributors:
         - Kostiantyn Wandalen <wanalen@01.school>
       npm.name: wtemplatetreeenvironment
-      npm.scripts: &ref_5
+      npm.scripts:
         test: wtest .run proto/**
         docgen: wdocgen .build proto
     path:
@@ -166,9 +169,9 @@ module:
           - ../proto
           - ../proto/Integration.test.ss
           - ../proto/node_modules
+          - ../proto/node_modules/Tools
           - ../proto/node_modules/wtemplatetreeenvironment
           - ../proto/wtools
-          - ../proto/wtools/Tools.s
           - ../proto/wtools/abase
           - ../proto/wtools/amid
           - ../proto/wtools/amid/l5_mapper
@@ -714,6 +717,24 @@ module:
           content: prime
         inherit:
           - files.transpile
+      exported.proto.export:
+        opts:
+          filePath: 'reflector::exported.proto.export'
+        criterion:
+          generated: 1
+          content: proto
+          export: 1
+        inherit:
+          - files.reflect
+      exported.files.proto.export:
+        opts:
+          filePath: 'reflector::exported.files.proto.export'
+        criterion:
+          generated: 1
+          content: proto
+          export: 1
+        inherit:
+          - files.reflect
     build:
       proto.export:
         steps:
@@ -802,8 +823,9 @@ module:
           content: proto
           export: 1
     consistency:
-      ../.ex.will.yml: *ref_0
-      ../.im.will.yml: *ref_1
+      wTemplateTreeEnvironment.out.will.yml: *ref_0
+      ../.ex.will.yml: *ref_1
+      ../.im.will.yml: *ref_2
   ../:
     about:
       name: wTemplateTreeEnvironment
@@ -815,13 +837,24 @@ module:
         template or path to value.
       enabled: 1
       version: 0.4.0
-      interpreters: *ref_2
-      keywords: *ref_3
+      interpreters:
+        - njs >= 10.0.0
+        - chrome >= 60.0.0
+        - firefox >= 60.0.0
+      keywords:
+        - Template tree
+        - Template tree environment
+        - wTools
+        - JSON
+        - YAML
       license: MIT
       author: Kostiantyn Wandalen <wanalen@01.school>
-      contributors: *ref_4
+      contributors:
+        - Kostiantyn Wandalen <wanalen@01.school>
       npm.name: wtemplatetreeenvironment
-      npm.scripts: *ref_5
+      npm.scripts:
+        test: wtest .run proto/**
+        docgen: wdocgen .build proto
     path:
       module.willfiles:
         criterion:
@@ -1503,3 +1536,6 @@ module:
       ../.im.will.yml:
         hash: 35ed87db619ad16035c3f78ad2477709
         size: 5201
+      wTemplateTreeEnvironment.out.will.yml:
+        hash: 487331d798d38092d899b7398b35e1e2
+        size: 39878
