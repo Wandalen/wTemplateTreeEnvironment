@@ -3,8 +3,8 @@ root:
   - wTemplateTreeEnvironment.out
 consistency:
   ../will.yml: &ref_0
-    hash: 23affa6bb7c384e658a6c4c0903e3e1e
-    size: 7027
+    hash: 83cbecf0d825acf44d9e47858ae079ab
+    size: 6886
 module:
   wTemplateTreeEnvironment.out:
     about:
@@ -381,9 +381,6 @@ module:
           content: npm
         inherit:
           - module.export
-      npm.publish:
-        opts:
-          shell: npm publish
       npm.generate.debug.raw:
         opts:
           entryPath: 'path::entry.out.*=1'
@@ -719,12 +716,6 @@ module:
           - 'step::doc.export'
         criterion:
           content: doc
-          export: 1
-      npm.export:
-        steps:
-          - 'step::npm.publish'
-        criterion:
-          content: npm
           export: 1
       export:
         steps:
@@ -1084,9 +1075,6 @@ module:
           content: npm
         inherit:
           - module.export
-      npm.publish:
-        opts:
-          shell: npm publish
       npm.generate.debug.raw:
         opts:
           entryPath: 'path::entry.out.*=1'
@@ -1423,12 +1411,6 @@ module:
         criterion:
           content: doc
           export: 1
-      npm.export:
-        steps:
-          - 'step::npm.publish'
-        criterion:
-          content: npm
-          export: 1
       export:
         steps:
           - 'build::proto.export'
@@ -1486,5 +1468,5 @@ module:
           - 'build::npm'
     consistency:
       ../will.yml:
-        hash: 23affa6bb7c384e658a6c4c0903e3e1e
-        size: 7027
+        hash: 83cbecf0d825acf44d9e47858ae079ab
+        size: 6886
