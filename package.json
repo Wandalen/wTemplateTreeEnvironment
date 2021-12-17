@@ -1,6 +1,6 @@
 {
   "name": "wtemplatetreeenvironment",
-  "version": "0.3.266",
+  "version": "0.3.267",
   "engine": "node >= 10.0.0",
   "description": "Class to resolve tree-like data structures with links  or paths in the structure. TemplateTreeEnvironment extends TemplateTreeResolver to been able to resolve paths into a files system. Use the module to resolve template or path to value.",
   "author": "Kostiantyn Wandalen <wandalen@obox.systems>",
@@ -31,12 +31,12 @@
     "url": "https://github.com/Wandalen/wTemplateTreeEnvironment/issues"
   },
   "dependencies": {
-    "wTools": "alpha",
-    "wtemplatetreeresolver": "alpha",
-    "wCopyable": "alpha"
+    "wTools": "delta",
+    "wtemplatetreeresolver": "delta",
+    "wCopyable": "delta"
   },
   "devDependencies": {
-    "wTesting": "alpha",
+    "wTesting": "delta",
     "eslint": "7.32.0"
   },
   "keywords": [
